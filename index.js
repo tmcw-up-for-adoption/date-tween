@@ -27,7 +27,6 @@ function dateTween(a, b, t, c) {
         bs = +b,
         dist = bs - as,
         start = +new Date(),
-        out = new Date(),
         r, end = start + t;
 
     function update() {
