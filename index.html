@@ -7,12 +7,35 @@
         <style>
         body {
             font-family:monospace;
+            width: 600px;
+            margin: 0 auto;
+            background:#111;
+        }
+        pre {
+            color:#fdd;
+            font-size:40px;
+            line-height:50px;
+            text-align:right;
+        }
+        button {
+            background:#fdd;
+            color:#000;
+            padding:10px;
+            border:0;
+        }
+        a {
+            color:#fdd;
+            border:1px solid #fdd;
+            padding:10px;
+            display:inline-block;
         }
         </style>
     </head>
     <body>
         <pre id='date'></pre>
         <pre id='time'></pre>
+        <button id='rand'>to random</button>
+        <a href='https://github.com/tmcw/date-tween'>(date-tween on github)</a>
         <script src='index.js'></script>
         <script>
         var datediv = document.getElementById('date');
@@ -23,6 +46,16 @@
             datediv.innerHTML = dateTweenFormatDate(d);
             time.innerHTML = dateTweenFormatTime(d);
         });
+        document.getElementById('rand').onclick = function() {
+            dateTween(end, new Date(+end + ((Math.random() - 0.5) * 10000000000)), 2000, function(d) {
+                datediv.innerHTML = dateTweenFormatDate(d);
+                time.innerHTML = dateTweenFormatTime(d);
+            }, function(d) {
+                end = d;
+            });
+        }
+
+
         </script>
     </body>
 </html>

@@ -18,11 +18,11 @@ function dateTweenFormatTime(d) {
         h -= 12;
         ampm = 'pm';
     }
-    return lpad(h, 2) + ':' + lpad(d.getMinutes(), 2) +
-        ':' + lpad(d.getSeconds(), 2, 0) + ampm;
+    return lpad(h, 2) + ':' + lpad(d.getMinutes(), 2, '0') +
+        ':' + lpad(d.getSeconds(), 2, '0') + ampm;
 }
 
-function dateTween(a, b, t, c) {
+function dateTween(a, b, t, c, f) {
     var as = +a,
         bs = +b,
         dist = bs - as,
@@ -37,6 +37,7 @@ function dateTween(a, b, t, c) {
             setTimeout(update, 10);
         } else {
             c(new Date(bs));
+            if (f) f(new Date(bs));
         }
     }
     update();
