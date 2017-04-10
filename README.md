@@ -2,6 +2,8 @@ date tweening
 
 ## api
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tmcw/date-tween.svg)](https://greenkeeper.io/)
+
 `dateTween(startDate, endDate, duration, callback, done)`
 
 Tween from startDate to endDate in duration milliseconds, and call callback
